@@ -111,7 +111,8 @@ function escapeTextContentForBrowser(text) {
     // for numeric dom ids.
     return '' + text;
   }
-  return escapeHtml(text);
+  return text;
+  // return escapeHtml(text);
 }
 
 module.exports = escapeTextContentForBrowser;

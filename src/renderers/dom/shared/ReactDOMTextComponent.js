@@ -90,9 +90,12 @@ Object.assign(ReactDOMTextComponent.prototype, {
       var lazyTree = DOMLazyTree(ownerDocument.createDocumentFragment());
       DOMLazyTree.queueChild(lazyTree, DOMLazyTree(openingComment));
       if (this._stringText) {
+        var htmlNode = ownerDocument.createElement('span');
+        htmlNode.innerHTML = this._stringText;
         DOMLazyTree.queueChild(
           lazyTree,
-          DOMLazyTree(ownerDocument.createTextNode(this._stringText)),
+          DOMLazyTree(htmlNode),
+          // DOMLazyTree(ownerDocument.createTextNode(this._stringText)),
         );
       }
       DOMLazyTree.queueChild(lazyTree, DOMLazyTree(closingComment));
